@@ -58,61 +58,49 @@ Follow these instructions to get a copy of the project up and running on your lo
 1.  **Clone the Repository (or download the files)**
     If this were a Git repository, you'd clone it. For now, ensure you have all the provided files in a single project directory.
 
-2.g  **Configure Google Maps API Key**
+2.  **Configure Google Maps API Key**
 
     *   Open `index.html`.
     *   Find the line that includes the Google Maps API script:
         ```html
         <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY_HERE&libraries=routes,streetView,geometry,places"></script>
         ```
+    *   Replace `YOUR_GOOGLE_MAPS_API_KEY_HERE` with your actual Google Maps API key.
     *   **Important**: For this key to work, you must enable the following APIs in your Google Cloud Console project:
         *   **Maps JavaScript API**
         *   **Directions API**
-        *   **Street View API** (often listed as "Street View Static API" or similar, ensure it covers `StreetViewService`)
+        *   **Street View API**
         *   **Geocoding API**
         *   **Places API**
-        *   **Geocoding API**
-        *   (The `geometry` library is loaded via the script tag, which includes `poly` and `spherical` functionalities.)
-    *   It is highly recommended to restrict your API key in the Google Cloud Console to prevent unauthorized use. You can restrict it by HTTP referrers (your development domain, e.g., `localhost:*` or `127.0.0.1:*`) and by API (to the services listed above).
+    *   It is highly recommended to restrict your API key in the Google Cloud Console.
 
 3.  **Configure Gemini API Key (Optional)**
 
     The Gemini API is used for generating route narratives. If you wish to use this feature:
     *   Obtain an API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
-    *   The application expects the Gemini API key to be available as an environment variable named `API_KEY` within the context where `process.env.API_KEY` is accessed (typically in a Node.js backend or build environment).
-    *   **For Client-Side Only Development (like this project):**
-        Since this is a client-side application without a backend or build step that injects environment variables, directly using `process.env.API_KEY` in the browser will not work as intended unless it's manually set.
-        *   **Development Workaround (Not for Production):** You could temporarily hardcode your Gemini API key in `services/geminiService.ts` where `process.env.API_KEY` is used. Replace `process.env.API_KEY` with your actual key string:
-            ```typescript
-            // In services/geminiService.ts
-            // ai = new GoogleGenAI({ apiKey: "YOUR_GEMINI_API_KEY_HERE" });
-            ```
-            **Remember to remove this before committing or deploying to a public environment!**
-        *   **Proper Solution (if deploying):** A backend proxy or a build step would be needed to securely manage and provide the Gemini API key to the client or handle Gemini API calls server-side.
-
-4.  **Run the Application Locally**
-
-    Since the project uses ES modules (`type="module"` in script tags), you need to serve `index.html` via an HTTP server. Opening `index.html` directly in the browser as a `file://` URL will likely cause CORS errors and prevent modules from loading.
-
-    *   **Using Python's HTTP Server (Python 3):**
-        Navigate to your project directory in the terminal and run:
-        ```bash
-        python -m http.server
+    *   Create a file named `.env` in the root of your project directory (the same directory as `package.json`).
+    *   Add the following line to your `.env` file, replacing `your_actual_gemini_api_key_here` with your key:
         ```
-        By default, this serves on `http://localhost:8000` or `http://0.0.0.0:8000`.
-
-    *   **Using Node.js `http-server`:**
-        If you have Node.js and npm installed, you can install `http-server` globally:
-        ```bash
-        npm install -g http-server
+        GEMINI_API_KEY=your_actual_gemini_api_key_here
         ```
-        Then, navigate to your project directory in the terminal and run:
-        ```bash
-        http-server
+    *   **Important for security:** If you are using Git, add `.env` to your `.gitignore` file to prevent your API key from being committed to version control. Create a `.gitignore` file in the project root if it doesn't exist and add the line:
         ```
-        This usually serves on `http://localhost:8080` or `http://127.0.0.1:8080`.
+        .env
+        ```
 
-    *   Open the provided URL (e.g., `http://localhost:8000`) in your web browser.
+4.  **Install Dependencies**
+    Navigate to your project directory in the terminal and run:
+    ```bash
+    npm install
+    ```
+    (or `yarn install` or `pnpm install` if you prefer those package managers).
+
+5.  **Run the Application Locally**
+    After installing dependencies, run the following command in your terminal:
+    ```bash
+    npm run dev
+    ```
+    This will start the Vite development server. It will typically open the application in your default web browser at a URL like `http://localhost:5173`. If it doesn't open automatically, the terminal output will show you the URL to open.
 
 ## How to Enable Google Cloud Dependency Services
 
@@ -128,6 +116,17 @@ To ensure the Google Maps API features work correctly, you need to enable specif
     *   **Geocoding API**
     *   **Places API**
 5.  Wait a few minutes for the changes to propagate after enabling.
+
+## Building for Production (Optional)
+
+If you want to create an optimized build of the application, you can run:
+```bash
+npm run build
+```
+This will create a `dist` folder with the production-ready static assets. You can then preview this build locally using:
+```bash
+npm run preview
+```
 
 ## Contributing
 
