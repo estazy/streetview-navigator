@@ -1,3 +1,4 @@
+
 export const th = {
   // App.tsx
   appTitle: "Street View Navigator", 
@@ -22,7 +23,7 @@ export const th = {
   endPlaceholder: "สถานที่สิ้นสุด (เช่น, พิพิธภัณฑ์ลูฟวร์, ปารีส)",
   searchButtonLoadingApi: "กำลังโหลด API...",
   searchButtonSearching: "กำลังค้นหา...",
-  searchButtonGetRide: "ดูเส้นทาง", // This will be overridden by English "Get Ride" in the component if lang is EN
+  searchButtonGetRide: "ดูเส้นทาง", 
 
   // StreetViewPlayer.tsx
   streetViewRouteLoaded: "โหลดเส้นทางแล้ว กดเล่นเพื่อเริ่ม",
@@ -39,22 +40,26 @@ export const th = {
   // RouteDetails.tsx
   noRoutePlanned: "ยังไม่มีการวางแผนเส้นทาง กรอกสถานที่เริ่มต้นและสิ้นสุดเพื่อดูรายละเอียด",
   currentViewTitle: "มุมมองปัจจุบัน",
-  geminiNarrativeTitle: "เรื่องเล่าการเดินทาง (โดย Gemini)", // Adjusted slightly
+  geminiNarrativeTitle: "เรื่องเล่าการเดินทาง (โดย Gemini)",
   turnByTurnTitle: "เส้นทางแบบเลี้ยวต่อเลี้ยว",
   totalDistance: "ระยะทางรวม",
   totalDuration: "ระยะเวลารวม",
   routeDetailsNotLoaded: "ไม่สามารถโหลดรายละเอียดเส้นทางได้",
+  readAloudLabel: "อ่านออกเสียงเรื่องเล่าเส้นทาง",
+  pauseNarrationLabel: "หยุดเรื่องเล่าชั่วคราว",
+  resumeNarrationLabel: "เล่นเรื่องเล่าต่อ",
+  speechNotSupported: "เบราว์เซอร์ของคุณไม่รองรับการอ่านออกเสียง",
 
 
   // ControlPanel.tsx
   playLabel: "เล่น",
   pauseLabel: "หยุดชั่วคราว",
   stopLabel: "หยุด",
-  speedLabel: "ความเร็ว:", // This will be overridden by English "Speed:" in the component if lang is EN
-  progressLabel: "ความคืบหน้า", // This will be overridden by English "Progress" in the component if lang is EN
+  speedLabel: "ความเร็ว:",
+  progressLabel: "ความคืบหน้า",
   stepDistanceLabel: "ปรับระยะก้าว:",
-  stepDistanceCoarse: "หยาบ", // For larger step distance
-  stepDistanceFine: "ละเอียด", // For smaller step distance
+  stepDistanceCoarse: "หยาบ", 
+  stepDistanceFine: "ละเอียด", 
 
 
   // LoadingSpinner.tsx

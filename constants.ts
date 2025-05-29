@@ -21,9 +21,9 @@ export const STREET_VIEW_RADIUS = 100; // Radius in meters to search for a Stree
 export const INTERPOLATION_THRESHOLD_METERS = 50; // Subdivide segments longer than this for smoother SV
 
 // Street View Step Distance parameters
-export const MIN_SV_STEP_DISTANCE = 5;     // Min meters per step for "Fine" detail
+export const MIN_SV_STEP_DISTANCE = 50;     // Min meters per step for "Fine" detail
 export const MAX_SV_STEP_DISTANCE = 1000;   // Max meters per step for "Coarse" detail (Increased to 1km)
-export const DEFAULT_SV_STEP_DISTANCE = 50; // Default meters per step (Adjusted for new range)
+export const DEFAULT_SV_STEP_DISTANCE = 200; // Default meters per step (Adjusted for new range)
 
 // Dark theme for Google Maps
 // Fix: Use 'any' for Google Maps types to suppress TypeScript errors when full type definitions are not available.

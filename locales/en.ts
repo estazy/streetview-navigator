@@ -1,3 +1,4 @@
+
 export const en = {
   // App.tsx
   appTitle: "Street View Navigator",
@@ -42,6 +43,11 @@ export const en = {
   totalDistance: "Total Distance",
   totalDuration: "Total Duration",
   routeDetailsNotLoaded: "Could not load route details.",
+  readAloudLabel: "Read route narrative aloud",
+  pauseNarrationLabel: "Pause narrative",
+  resumeNarrationLabel: "Resume narrative",
+  speechNotSupported: "Text-to-speech not supported by your browser.",
+
 
   // ControlPanel.tsx
   playLabel: "Play",
