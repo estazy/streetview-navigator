@@ -1,0 +1,5 @@
+{
+  "name": "StreetRide Navigator",
+  "description": "A Street View-based route navigation simulator. Plan your trip and 'ride' through it virtually, seeing the environment along your path.",
+  "requestFramePermissions": ["geolocation"]
+}

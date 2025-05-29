@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" /> <!-- Replace with your actual favicon -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Street View Navigator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body, #root {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent body scrollbars when app is full height */
+      font-family: 'Noto Sans Thai', 'Tahoma', 'Helvetica Neue', Arial, sans-serif; /* Added Noto Sans Thai */
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #2d3748; /* gray-800 */
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #4a5568; /* gray-600 */
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #718096; /* gray-500 */
+    }
+    /* Ensure street view and map can be sized effectively */
+    .main-content-area {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+    .street-view-pane {
+      height: 60%; /* Default, can be adjusted */
+      min-height: 200px; /* Minimum sensible height */
+    }
+    .map-pane {
+      height: 40%; /* Default, can be adjusted */
+      min-height: 150px; /* Minimum sensible height */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.2.0"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <!-- 
+    IMPORTANT: Replace YOUR_GOOGLE_MAPS_API_KEY_HERE with your actual Google Maps API Key.
+    The application will not function correctly without a valid API key.
+    Ensure you have enabled: Maps JavaScript API, Directions API, Street View API, Geocoding API (implicitly used by Directions)
+    and Places API & Geometry Library (used by autocomplete and calculations - geometry includes poly library).
+  -->
+  <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY_HERE&libraries=routes,streetView,geometry,places"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html><link rel="stylesheet" href="index.css">
+<script src="index.tsx" type="module"></script>
