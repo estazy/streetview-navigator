@@ -22,6 +22,10 @@ Welcome to Street View Navigator! This application allows users to plan a route 
 *   **AI Narrative**: Google Gemini API (via `@google/genai` SDK)
 *   **Module Management**: ES Modules with Import Maps in `index.html`
 
+## Screenshot
+![1](https://drive.usercontent.google.com/download?id=1lm6gGptIbPvupfpdQBDxWbpblQR3J42k)
+![2](https://drive.usercontent.google.com/download?id=1VnbNkuf6OGOzQ0SaRzQkD94p1KbbZrIx)
+
 ## Project Structure
 
 ```
